@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<AnchorPane fx:id="rootPane" prefHeight="238.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.AddUserController">
+    <children>
+        <Label layoutX="29.0" layoutY="12.0" text="姓名：" AnchorPane.topAnchor="12.0"/>
+        <TextField fx:id="nameTextField" layoutX="74.0" layoutY="7.0" prefHeight="28.0" prefWidth="202.0"
+                   promptText="姓名"/>
+        <Label layoutX="29.0" layoutY="50.0" text="性别："/>
+        <ChoiceBox fx:id="sexChoiceBox" layoutX="75.0" layoutY="45.0" prefHeight="28.0" prefWidth="202.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="男"/>
+                    <String fx:value="女"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Label layoutX="3.0" layoutY="88.0" text="联系方式："/>
+        <TextField fx:id="telTextField" layoutX="73.0" layoutY="83.0" prefHeight="28.0" prefWidth="202.0"
+                   promptText="联系方式"/>
+        <Label layoutX="16.0" layoutY="127.0" text="用户名：" AnchorPane.topAnchor="127.0"/>
+        <TextField fx:id="usernameTextField" layoutX="73.0" layoutY="122.0" prefHeight="28.0" prefWidth="202.0"
+                   promptText="用户名"/>
+        <Label layoutX="28.0" layoutY="164.0" text="密码："/>
+        <PasswordField fx:id="passwordTextField" layoutX="73.0" layoutY="159.0" prefHeight="28.0" prefWidth="202.0"
+                       promptText="密码"/>
+        <CheckBox fx:id="isAdminCheckBox" layoutX="119.0" layoutY="202.0" mnemonicParsing="false" text="管理员"/>
+        <Button layoutX="50.0" layoutY="197.0" mnemonicParsing="false" onAction="#addUser" text="确定"
+                AnchorPane.leftAnchor="50.0"/>
+        <Button layoutX="206.0" layoutY="197.0" mnemonicParsing="false" onAction="#closeWindow" text="取消"
+                AnchorPane.rightAnchor="50.0"/>
+    </children>
+</AnchorPane>

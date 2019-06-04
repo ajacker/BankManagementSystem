@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane fx:id="rootPane" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.TermOutController">
+    <children>
+        <Label layoutX="31.0" layoutY="12.0" text="户号：" AnchorPane.topAnchor="12.0"/>
+        <Label layoutX="31.0" layoutY="85.0" text="金额：" AnchorPane.topAnchor="85.0"/>
+        <Label layoutX="31.0" layoutY="123.0" text="备注："/>
+        <TextField fx:id="userIdTextField" layoutX="74.0" layoutY="7.0" prefHeight="28.0" prefWidth="202.0"
+                   promptText="用户id"/>
+        <TextField fx:id="inTextField" layoutX="74.0" layoutY="43.0" prefHeight="28.0" prefWidth="202.0"
+                   promptText="存款单号"/>
+        <TextField fx:id="moneyTextField" layoutX="74.0" layoutY="80.0" prefHeight="28.0" prefWidth="202.0"
+                   promptText="取款金额"/>
+        <TextField fx:id="remarkTextField" layoutX="73.0" layoutY="119.0" prefHeight="28.0" prefWidth="202.0"
+                   promptText="备注信息"/>
+        <Button layoutX="50.0" layoutY="159.0" mnemonicParsing="false" onAction="#insertTermOut" text="确定"
+                AnchorPane.leftAnchor="50.0"/>
+        <Button layoutX="206.0" layoutY="159.0" mnemonicParsing="false" onAction="#closeWindow" text="取消"
+                AnchorPane.rightAnchor="50.0"/>
+        <Label layoutX="6.0" layoutY="48.0" text="存款单号："/>
+    </children>
+</AnchorPane>

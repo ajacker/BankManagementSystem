@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.MainController">
+    <children>
+        <MenuBar layoutY="6.0" prefHeight="29.0" prefWidth="723.0" AnchorPane.bottomAnchor="571.0"
+                 AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu fx:id="menu_account" mnemonicParsing="false" text="账户">
+                    <items>
+                        <MenuItem fx:id="menu_login" mnemonicParsing="false" onAction="#loginAccount" text="登录"/>
+                        <MenuItem fx:id="menu_logout" disable="true" mnemonicParsing="false" onAction="#logoutAccount"
+                                  text="注销"/>
+                        <MenuItem fx:id="changePwdMenuItem" disable="true" mnemonicParsing="false"
+                                  onAction="#changePassword" text="修改密码"/>
+                        <MenuItem fx:id="menu_exit" mnemonicParsing="false" onAction="#exitApplication" text="退出程序"/>
+                    </items>
+                </Menu>
+                <Menu fx:id="menu_service" mnemonicParsing="false" text="业务">
+                    <items>
+                        <Menu mnemonicParsing="false" text="办理">
+                            <items>
+                                <MenuItem fx:id="currentInMenuItem" mnemonicParsing="false" onAction="#insertCurrentIn"
+                                          text="活期存款单"/>
+                                <MenuItem fx:id="currentOutMenuItem" mnemonicParsing="false"
+                                          onAction="#insertCurrentOut" text="活期取款单"/>
+                                <SeparatorMenuItem mnemonicParsing="false"/>
+                                <MenuItem fx:id="termInMenuItem" mnemonicParsing="false" onAction="#insertTermIn"
+                                          text="定期存款单"/>
+                                <MenuItem fx:id="termOutMenuItem" mnemonicParsing="false" onAction="#insertTermOut"
+                                          text="定期取款单"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="查询">
+                            <items>
+                                <Menu mnemonicParsing="false" text="活期">
+                                    <items>
+                                        <MenuItem fx:id="menu_currentIn" mnemonicParsing="false"
+                                                  onAction="#queryCurrentIn" text="活期存款单"/>
+                                        <MenuItem mnemonicParsing="false" onAction="#queryCurrentOut" text="活期取款单"/>
+                                        <MenuItem mnemonicParsing="false" onAction="#queryCurrentInUnclear"
+                                                  text="未结算活期账单"/>
+                                    </items>
+                                </Menu>
+                                <Menu mnemonicParsing="false" text="定期">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#queryTermIn" text="定期存款单"/>
+                                        <MenuItem mnemonicParsing="false" onAction="#queryTermOut" text="定期取款单"/>
+                                        <MenuItem mnemonicParsing="false" onAction="#queryTermInUnclear"
+                                                  text="未取款定期账单"/>
+                                    </items>
+                                </Menu>
+                                <MenuItem fx:id="updateRateMenuItem" mnemonicParsing="false" onAction="#updateRate"
+                                          text="利率"/>
+                            </items>
+                        </Menu>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="工具">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openInterestCal" text="利息计算器"/>
+                    </items>
+                </Menu>
+                <Menu fx:id="manageMenu" mnemonicParsing="false" text="管理">
+                    <items>
+                        <MenuItem fx:id="addUserMenuItem" mnemonicParsing="false" onAction="#addUserInfo" text="开户"/>
+                        <MenuItem fx:id="userAccountMenuItem" disable="true" mnemonicParsing="false"
+                                  onAction="#userAccount" text="用户账户"/>
+                        <MenuItem fx:id="adminAccountMenuItem" disable="true" mnemonicParsing="false"
+                                  onAction="#adminAccount" text="管理员账户"/>
+                        <MenuItem fx:id="calInterestMenuItem" disable="true" mnemonicParsing="false"
+                                  onAction="#calInterest" text="结算利息"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TableView fx:id="tableview" layoutY="29.0" prefHeight="573.0" prefWidth="621.0" AnchorPane.bottomAnchor="-2.0"
+                   AnchorPane.leftAnchor="0.0">
+            <tooltip>
+                <Tooltip text="用于显示数据的表格"/>
+            </tooltip>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="deleteRowMenuItem" disable="true" mnemonicParsing="false" onAction="#deleteRow"
+                                  text="删除行"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+        <Label layoutX="635.0" layoutY="43.0" text="用户身份：">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="635.0" layoutY="71.0" prefHeight="18.0" prefWidth="65.0" text="用户名：">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+        </Label>
+        <Label fx:id="info_identity" layoutX="700.0" layoutY="43.0" text="NULL">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+        </Label>
+        <Label fx:id="info_username" layoutX="700.0" layoutY="71.0" text="NULL">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+        </Label>
+        <AnchorPane fx:id="paneInfo" layoutX="621.0" layoutY="99.0" prefHeight="48.0" prefWidth="179.0"
+                    AnchorPane.leftAnchor="621.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Label fx:id="info_name" layoutX="79.0" text="NULL" AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+                <Label alignment="CENTER_RIGHT" layoutX="14.0" prefHeight="18.0" prefWidth="65.0" text="姓名："
+                       AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+                <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="28.0" prefHeight="18.0" prefWidth="65.0"
+                       text="性别：">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+                <Label fx:id="info_sex" layoutX="79.0" layoutY="28.0" text="NULL">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+                <Label fx:id="info_tel" layoutX="79.0" layoutY="53.0" text="NULL">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+                <Label layoutX="14.0" layoutY="53.0" text="联系方式：">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="paneBalance" layoutX="621.0" layoutY="180.0" prefHeight="21.0" prefWidth="179.0">
+            <children>
+                <Label fx:id="info_current" layoutX="80.0" layoutY="-3.0" text="NULL">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+                <Label layoutX="15.0" layoutY="-3.0" text="活期余额：">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+                <Label layoutX="15.0" layoutY="25.0" prefHeight="18.0" prefWidth="65.0" text="定期余额：">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+                <Label fx:id="info_term" layoutX="80.0" layoutY="25.0" text="NULL">
+                    <padding>
+                        <Insets bottom="5.0" top="5.0"/>
+                    </padding>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button fx:id="calBtn" disable="true" layoutX="661.0" layoutY="371.0" mnemonicParsing="false" prefHeight="28.0"
+                prefWidth="79.0" text="统计"/>
+        <Button fx:id="deleteBtn" layoutX="661.0" layoutY="409.0" mnemonicParsing="false" onAction="#deleteRow"
+                prefHeight="28.0" prefWidth="79.0" text="删除"/>
+        <Button fx:id="updateRateBtn" layoutX="661.0" layoutY="447.0" mnemonicParsing="false" onAction="#updateRate"
+                prefHeight="28.0" prefWidth="79.0" text="利率"/>
+        <Button fx:id="calInterestBtn" layoutX="661.0" layoutY="485.0" mnemonicParsing="false" onAction="#calInterest"
+                prefHeight="28.0" prefWidth="79.0" text="结算利息"/>
+    </children>
+</AnchorPane>

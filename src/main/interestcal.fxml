@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.*?>
+<AnchorPane fx:id="rootPane" prefHeight="303.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InterestCalController">
+    <children>
+        <Label layoutX="50.0" layoutY="19.0" text="金额：" AnchorPane.topAnchor="19.0"/>
+        <ChoiceBox fx:id="durationChoiceBox" disable="true" layoutX="88.0" layoutY="91.0" prefHeight="28.0"
+                   prefWidth="202.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="6个月"/>
+                    <String fx:value="1年"/>
+                    <String fx:value="2年"/>
+                    <String fx:value="3年"/>
+                    <String fx:value="5年"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Label layoutX="50.0" layoutY="57.0" text="类型："/>
+        <ChoiceBox fx:id="typeChoiceBox" layoutX="88.0" layoutY="52.0" prefHeight="28.0" prefWidth="202.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="定期"/>
+                    <String fx:value="活期"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Label layoutX="23.0" layoutY="132.0" text="存款日期："/>
+        <TextField fx:id="moneyTextField" layoutX="87.0" layoutY="14.0" prefHeight="28.0" prefWidth="202.0"
+                   promptText="存款金额"/>
+        <Button layoutX="50.0" layoutY="259.0" mnemonicParsing="false" onAction="#calculateInterest" prefHeight="28.0"
+                prefWidth="65.0" text="计算" AnchorPane.leftAnchor="50.0"/>
+        <Button layoutX="214.0" layoutY="259.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="28.0"
+                prefWidth="65.0" text="关闭" AnchorPane.rightAnchor="50.0"/>
+        <Label layoutX="37.0" layoutY="96.0" text="定期限："/>
+        <DatePicker fx:id="inDatePicker" editable="false" layoutX="88.0" layoutY="127.0" promptText="存款日期"/>
+        <DatePicker fx:id="outDatePicker" editable="false" layoutX="88.0" layoutY="165.0" promptText="取款日期"/>
+        <Label layoutX="23.0" layoutY="170.0" text="取款日期："/>
+        <Label layoutX="49.0" layoutY="203.0" text="利率："/>
+        <Label fx:id="rateLabel" layoutX="88.0" layoutY="203.0" text="无"/>
+        <Label fx:id="interestLabel" layoutX="88.0" layoutY="231.0" text="无"/>
+        <Label layoutX="23.0" layoutY="231.0" text="预计收益："/>
+    </children>
+</AnchorPane>

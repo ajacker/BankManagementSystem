@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.LoginController">
+    <children>
+        <ChoiceBox fx:id="identityChoiceBox" layoutX="82.0" layoutY="105.0" prefHeight="28.0" prefWidth="175.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="用户"/>
+                    <String fx:value="管理员"/>
+                    <String fx:value="su"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Button fx:id="btnLogin" layoutX="51.0" layoutY="164.0" mnemonicParsing="false" onAction="#onLoginPressed"
+                prefHeight="28.0" prefWidth="65.0" text="登录" AnchorPane.bottomAnchor="20.0"
+                AnchorPane.leftAnchor="60.0"/>
+        <Button fx:id="btnCancel" layoutX="196.0" layoutY="164.0" mnemonicParsing="false" onAction="#closeLoginWindow"
+                prefHeight="28.0" prefWidth="65.0" text="取消" AnchorPane.bottomAnchor="20.0"
+                AnchorPane.rightAnchor="60.0"/>
+        <Label layoutX="18.0" layoutY="25.0" text="登录名："/>
+        <Label layoutX="18.0" layoutY="66.0" text="密码："/>
+        <Label layoutX="18.0" layoutY="110.0" text="身份："/>
+        <TextField fx:id="tfUsername" layoutX="82.0" layoutY="20.0"/>
+        <PasswordField fx:id="tfPassword" layoutX="82.0" layoutY="61.0"/>
+    </children>
+</AnchorPane>
