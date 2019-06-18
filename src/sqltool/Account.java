@@ -123,7 +123,6 @@ public class Account {
         MenuItem adminAccountMenuItem = (MenuItem) MainWindow.fxmlLoader.getNamespace().get("adminAccountMenuItem");
         MenuItem calInterestMenuItem = (MenuItem) MainWindow.fxmlLoader.getNamespace().get("calInterestMenuItem");
         MenuItem addUserMenuItem = (MenuItem) MainWindow.fxmlLoader.getNamespace().get("addUserMenuItem");
-        Button calBtn = (Button) MainWindow.fxmlLoader.getNamespace().get("calBtn");
         Button deleteBtn = (Button) MainWindow.fxmlLoader.getNamespace().get("deleteBtn");
         Button calInterestBtn = (Button) MainWindow.fxmlLoader.getNamespace().get("calInterestBtn");
         identity.setText(getIdentity());
@@ -138,7 +137,6 @@ public class Account {
                 changepwd.setDisable(false);
                 currentBalance.setText(String.valueOf(user.getCurrentBalance()));
                 termBalance.setText(String.valueOf(user.getTermBalance()));
-                calBtn.setVisible(true);
                 addUserMenuItem.setDisable(true);
                 break;
             case admin:
@@ -150,7 +148,6 @@ public class Account {
                 changepwd.setDisable(false);
                 paneBalance.setVisible(false);
                 deleteRow.setDisable(false);
-                //calBtn.setVisible(true);
                 deleteBtn.setVisible(true);
                 addUserMenuItem.setDisable(false);
                 break;
@@ -163,7 +160,6 @@ public class Account {
                 paneInfo.setVisible(false);
                 paneBalance.setVisible(false);
                 deleteRow.setDisable(false);
-                //calBtn.setVisible(true);
                 deleteBtn.setVisible(true);
                 calInterestBtn.setVisible(true);
                 addUserMenuItem.setDisable(false);
@@ -199,7 +195,6 @@ public class Account {
         MenuItem adminAccountMenuItem = (MenuItem) MainWindow.fxmlLoader.getNamespace().get("adminAccountMenuItem");
         MenuItem calInterestMenuItem = (MenuItem) MainWindow.fxmlLoader.getNamespace().get("calInterestMenuItem");
         MenuItem addUserMenuItem = (MenuItem) MainWindow.fxmlLoader.getNamespace().get("addUserMenuItem");
-        Button calBtn = (Button) MainWindow.fxmlLoader.getNamespace().get("calBtn");
         Button deleteBtn = (Button) MainWindow.fxmlLoader.getNamespace().get("deleteBtn");
         Button calInterestBtn = (Button) MainWindow.fxmlLoader.getNamespace().get("calInterestBtn");
 
@@ -216,7 +211,6 @@ public class Account {
         userAccountMenuItem.setDisable(true);
         adminAccountMenuItem.setDisable(true);
         calInterestMenuItem.setDisable(true);
-        calBtn.setVisible(false);
         deleteBtn.setVisible(false);
         calInterestBtn.setVisible(false);
         addUserMenuItem.setDisable(true);
